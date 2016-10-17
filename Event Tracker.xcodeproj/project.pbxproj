@@ -7,14 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1708B83F1DB2790B006173B0 /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1708B8361DB2790B006173B0 /* image1.png */; };
+		1708B8401DB2790B006173B0 /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1708B8371DB2790B006173B0 /* image2.png */; };
+		1708B8411DB2790B006173B0 /* image3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1708B8381DB2790B006173B0 /* image3.png */; };
+		1708B8421DB2790B006173B0 /* image4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1708B8391DB2790B006173B0 /* image4.png */; };
+		1708B8431DB2790B006173B0 /* image5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1708B83A1DB2790B006173B0 /* image5.png */; };
+		1708B8441DB2790B006173B0 /* image6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1708B83B1DB2790B006173B0 /* image6.png */; };
+		1708B8451DB2790B006173B0 /* image7.png in Resources */ = {isa = PBXBuildFile; fileRef = 1708B83C1DB2790B006173B0 /* image7.png */; };
+		1708B8461DB2790B006173B0 /* image8.png in Resources */ = {isa = PBXBuildFile; fileRef = 1708B83D1DB2790B006173B0 /* image8.png */; };
+		1708B8471DB2790B006173B0 /* image9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1708B83E1DB2790B006173B0 /* image9.png */; };
+		174B0F531DB486BE00B08181 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B0F521DB486BE00B08181 /* Singleton.swift */; };
+		174B0F551DB4D0DE00B08181 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 174B0F541DB4D0DE00B08181 /* backButton.png */; };
 		C6EF08561DB20DC400867AC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF08551DB20DC400867AC0 /* AppDelegate.swift */; };
-		C6EF08581DB20DC400867AC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF08571DB20DC400867AC0 /* ViewController.swift */; };
 		C6EF085B1DB20DC400867AC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6EF08591DB20DC400867AC0 /* Main.storyboard */; };
 		C6EF085E1DB20DC400867AC0 /* Event_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6EF085C1DB20DC400867AC0 /* Event_Tracker.xcdatamodeld */; };
 		C6EF08601DB20DC400867AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6EF085F1DB20DC400867AC0 /* Assets.xcassets */; };
 		C6EF08631DB20DC400867AC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6EF08611DB20DC400867AC0 /* LaunchScreen.storyboard */; };
 		C6EF086E1DB20DC400867AC0 /* Event_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF086D1DB20DC400867AC0 /* Event_TrackerTests.swift */; };
 		C6EF08791DB20DC400867AC0 /* Event_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF08781DB20DC400867AC0 /* Event_TrackerUITests.swift */; };
+		C6EF088E1DB20F7E00867AC0 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF088D1DB20F7E00867AC0 /* InputViewController.swift */; };
+		C6EF08901DB20F8C00867AC0 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF088F1DB20F8C00867AC0 /* EventListViewController.swift */; };
+		C6EF08921DB20F9D00867AC0 /* TrackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF08911DB20F9D00867AC0 /* TrackListViewController.swift */; };
+		C6EF08941DB20FB000867AC0 /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF08931DB20FB000867AC0 /* DetailEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +49,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1708B8361DB2790B006173B0 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
+		1708B8371DB2790B006173B0 /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
+		1708B8381DB2790B006173B0 /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image3.png; sourceTree = "<group>"; };
+		1708B8391DB2790B006173B0 /* image4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image4.png; sourceTree = "<group>"; };
+		1708B83A1DB2790B006173B0 /* image5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image5.png; sourceTree = "<group>"; };
+		1708B83B1DB2790B006173B0 /* image6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image6.png; sourceTree = "<group>"; };
+		1708B83C1DB2790B006173B0 /* image7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image7.png; sourceTree = "<group>"; };
+		1708B83D1DB2790B006173B0 /* image8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image8.png; sourceTree = "<group>"; };
+		1708B83E1DB2790B006173B0 /* image9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image9.png; sourceTree = "<group>"; };
+		174B0F521DB486BE00B08181 /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		174B0F541DB4D0DE00B08181 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
 		C6EF08521DB20DC400867AC0 /* Event Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Event Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EF08551DB20DC400867AC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C6EF08571DB20DC400867AC0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C6EF085A1DB20DC400867AC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6EF085D1DB20DC400867AC0 /* Event_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Event_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		C6EF085F1DB20DC400867AC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +73,10 @@
 		C6EF08741DB20DC400867AC0 /* Event TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Event TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EF08781DB20DC400867AC0 /* Event_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event_TrackerUITests.swift; sourceTree = "<group>"; };
 		C6EF087A1DB20DC400867AC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6EF088D1DB20F7E00867AC0 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		C6EF088F1DB20F8C00867AC0 /* EventListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
+		C6EF08911DB20F9D00867AC0 /* TrackListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackListViewController.swift; sourceTree = "<group>"; };
+		C6EF08931DB20FB000867AC0 /* DetailEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +127,11 @@
 		C6EF08541DB20DC400867AC0 /* Event Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				C6EF08861DB20DF200867AC0 /* Controller */,
+				C6EF08871DB20E2300867AC0 /* Model */,
+				C6EF08881DB20E2C00867AC0 /* View */,
 				C6EF08551DB20DC400867AC0 /* AppDelegate.swift */,
-				C6EF08571DB20DC400867AC0 /* ViewController.swift */,
-				C6EF08591DB20DC400867AC0 /* Main.storyboard */,
 				C6EF085F1DB20DC400867AC0 /* Assets.xcassets */,
-				C6EF08611DB20DC400867AC0 /* LaunchScreen.storyboard */,
 				C6EF08641DB20DC400867AC0 /* Info.plist */,
 				C6EF085C1DB20DC400867AC0 /* Event_Tracker.xcdatamodeld */,
 			);
@@ -126,6 +154,52 @@
 				C6EF087A1DB20DC400867AC0 /* Info.plist */,
 			);
 			path = "Event TrackerUITests";
+			sourceTree = "<group>";
+		};
+		C6EF08861DB20DF200867AC0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C6EF088D1DB20F7E00867AC0 /* InputViewController.swift */,
+				C6EF088F1DB20F8C00867AC0 /* EventListViewController.swift */,
+				C6EF08911DB20F9D00867AC0 /* TrackListViewController.swift */,
+				C6EF08931DB20FB000867AC0 /* DetailEventViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		C6EF08871DB20E2300867AC0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				174B0F521DB486BE00B08181 /* Singleton.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C6EF08881DB20E2C00867AC0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6EF08951DB22A1A00867AC0 /* Images */,
+				C6EF08591DB20DC400867AC0 /* Main.storyboard */,
+				C6EF08611DB20DC400867AC0 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C6EF08951DB22A1A00867AC0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				174B0F541DB4D0DE00B08181 /* backButton.png */,
+				1708B8361DB2790B006173B0 /* image1.png */,
+				1708B8371DB2790B006173B0 /* image2.png */,
+				1708B8381DB2790B006173B0 /* image3.png */,
+				1708B8391DB2790B006173B0 /* image4.png */,
+				1708B83A1DB2790B006173B0 /* image5.png */,
+				1708B83B1DB2790B006173B0 /* image6.png */,
+				1708B83C1DB2790B006173B0 /* image7.png */,
+				1708B83D1DB2790B006173B0 /* image8.png */,
+				1708B83E1DB2790B006173B0 /* image9.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +307,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6EF08631DB20DC400867AC0 /* LaunchScreen.storyboard in Resources */,
+				1708B8471DB2790B006173B0 /* image9.png in Resources */,
+				1708B8451DB2790B006173B0 /* image7.png in Resources */,
+				1708B8441DB2790B006173B0 /* image6.png in Resources */,
+				1708B8461DB2790B006173B0 /* image8.png in Resources */,
+				1708B8411DB2790B006173B0 /* image3.png in Resources */,
+				1708B8401DB2790B006173B0 /* image2.png in Resources */,
+				1708B83F1DB2790B006173B0 /* image1.png in Resources */,
+				1708B8421DB2790B006173B0 /* image4.png in Resources */,
+				174B0F551DB4D0DE00B08181 /* backButton.png in Resources */,
+				1708B8431DB2790B006173B0 /* image5.png in Resources */,
 				C6EF08601DB20DC400867AC0 /* Assets.xcassets in Resources */,
 				C6EF085B1DB20DC400867AC0 /* Main.storyboard in Resources */,
 			);
@@ -259,8 +343,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6EF08581DB20DC400867AC0 /* ViewController.swift in Sources */,
+				C6EF08941DB20FB000867AC0 /* DetailEventViewController.swift in Sources */,
+				174B0F531DB486BE00B08181 /* Singleton.swift in Sources */,
+				C6EF088E1DB20F7E00867AC0 /* InputViewController.swift in Sources */,
+				C6EF08901DB20F8C00867AC0 /* EventListViewController.swift in Sources */,
 				C6EF085E1DB20DC400867AC0 /* Event_Tracker.xcdatamodeld in Sources */,
+				C6EF08921DB20F9D00867AC0 /* TrackListViewController.swift in Sources */,
 				C6EF08561DB20DC400867AC0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +492,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Event Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vinoth.Event-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -415,6 +504,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Event Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vinoth.Event-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -488,6 +578,7 @@
 				C6EF087F1DB20DC400867AC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C6EF08801DB20DC400867AC0 /* Build configuration list for PBXNativeTarget "Event TrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +587,7 @@
 				C6EF08821DB20DC400867AC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C6EF08831DB20DC400867AC0 /* Build configuration list for PBXNativeTarget "Event TrackerUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +596,7 @@
 				C6EF08851DB20DC400867AC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
