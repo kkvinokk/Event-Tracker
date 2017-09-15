@@ -13,16 +13,16 @@ class EventListViewController: UIViewController{
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBAction func segmentAction(sender: AnyObject) {
+    @IBAction func segmentAction(_ sender: AnyObject) {
         switch segmentControl.selectedSegmentIndex
         {
         case 0:
-            GridView.hidden=true
-            ListView.hidden=false
+            GridView.isHidden=true
+            ListView.isHidden=false
             break
          case 1:
-            ListView.hidden=true
-             GridView.hidden=false
+            ListView.isHidden=true
+             GridView.isHidden=false
              break
         default:
             break; 
@@ -71,16 +71,16 @@ class EventListViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let font = UIFont.systemFontOfSize(35)
+        let font = UIFont.systemFont(ofSize: 35)
         segmentControl.setTitleTextAttributes([NSFontAttributeName: font],
-                                                forState: UIControlState.Normal)
-        segmentControl.frame = CGRectMake(20, 23, self.view.frame.size.width - 40 , 60)
+                                                for: UIControlState())
+        segmentControl.frame = CGRect(x: 20, y: 23, width: self.view.frame.size.width - 40 , height: 60)
 
-        GridView.hidden=true
+        GridView.isHidden=true
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(EventListViewController.handleSwipes(_:)))
-        leftSwipe.direction = .Left
+        leftSwipe.direction = .left
         view.addGestureRecognizer(leftSwipe)
-        tableView.editing = false
+        tableView.isEditing = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,30 +89,30 @@ class EventListViewController: UIViewController{
     
     
     
-    func handleSwipes(sender:UISwipeGestureRecognizer) {
+    func handleSwipes(_ sender:UISwipeGestureRecognizer) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let trackListViewController = storyboard.instantiateViewControllerWithIdentifier("trackListViewController")
+        let trackListViewController = storyboard.instantiateViewController(withIdentifier: "trackListViewController")
         self.navigationController!.pushViewController(trackListViewController, animated: true)
     }
     
     // MARK: - Table View
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(_ tableView: UITableView) -> Int {
 
         return 1
     }
     
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return arrayOfEventDetails.count
     }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
 
         if let theLabel = cell.viewWithTag(1) as? UILabel {
@@ -120,7 +120,7 @@ class EventListViewController: UIViewController{
         }
         
         if let theImageView = cell.viewWithTag(5) as? UIImageView {
-            theImageView.image = UIImage(imageLiteral: arrayOfEventDetails[indexPath.row]["image"]!)
+            theImageView.image = UIImage(named: arrayOfEventDetails[indexPath.row]["image"]!)
         }
         if let placeLabel = cell.viewWithTag(2) as? UILabel {
             placeLabel.text = arrayOfEventDetails[indexPath.row]["location"]
@@ -138,43 +138,43 @@ class EventListViewController: UIViewController{
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
 
-        let DetailEventViewControllerrOBJ = self.storyboard!.instantiateViewControllerWithIdentifier("detailEventViewController") as! DetailEventViewController
+        let DetailEventViewControllerrOBJ = self.storyboard!.instantiateViewController(withIdentifier: "detailEventViewController") as! DetailEventViewController
         DetailEventViewControllerrOBJ.selEventDetails = arrayOfEventDetails[indexPath.row]
         self.navigationController!.pushViewController(DetailEventViewControllerrOBJ, animated: true)
     }
     
     // MARK: - Collection View
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int {
 
         return 1
     }
     
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         return arrayOfEventDetails.count
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: IndexPath){
         
-        let DetailEventViewControllerrOBJ = self.storyboard!.instantiateViewControllerWithIdentifier("detailEventViewController") as! DetailEventViewController
+        let DetailEventViewControllerrOBJ = self.storyboard!.instantiateViewController(withIdentifier: "detailEventViewController") as! DetailEventViewController
         DetailEventViewControllerrOBJ.selEventDetails = arrayOfEventDetails[indexPath.row]
         self.navigationController!.pushViewController(DetailEventViewControllerrOBJ, animated: true)
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
 
         if let theLabel = cell.viewWithTag(1) as? UILabel {
             theLabel.text = arrayOfEventDetails[indexPath.row]["name"]
         }
         
         if let theImageView = cell.viewWithTag(5) as? UIImageView {
-            theImageView.image = UIImage(imageLiteral: arrayOfEventDetails[indexPath.row]["image"]!)
+            theImageView.image = UIImage(named: arrayOfEventDetails[indexPath.row]["image"]!)
         }
         
         return cell

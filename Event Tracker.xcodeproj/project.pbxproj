@@ -127,10 +127,10 @@
 		C6EF08541DB20DC400867AC0 /* Event Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				C6EF08551DB20DC400867AC0 /* AppDelegate.swift */,
 				C6EF08861DB20DF200867AC0 /* Controller */,
 				C6EF08871DB20E2300867AC0 /* Model */,
 				C6EF08881DB20E2C00867AC0 /* View */,
-				C6EF08551DB20DC400867AC0 /* AppDelegate.swift */,
 				C6EF085F1DB20DC400867AC0 /* Assets.xcassets */,
 				C6EF08641DB20DC400867AC0 /* Info.plist */,
 				C6EF085C1DB20DC400867AC0 /* Event_Tracker.xcdatamodeld */,
@@ -270,13 +270,17 @@
 				TargetAttributes = {
 					C6EF08511DB20DC400867AC0 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = JY5J764JW5;
+						LastSwiftMigration = 0830;
 					};
 					C6EF08681DB20DC400867AC0 = {
 						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = C6EF08511DB20DC400867AC0;
 					};
 					C6EF08731DB20DC400867AC0 = {
 						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = C6EF08511DB20DC400867AC0;
 					};
 				};
@@ -491,11 +495,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JY5J764JW5;
 				INFOPLIST_FILE = "Event Tracker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vinoth.Event-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -503,11 +510,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JY5J764JW5;
 				INFOPLIST_FILE = "Event Tracker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vinoth.Event-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -519,6 +529,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vinoth.Event-TrackerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Event Tracker.app/Event Tracker";
 			};
 			name = Debug;
@@ -531,6 +542,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vinoth.Event-TrackerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Event Tracker.app/Event Tracker";
 			};
 			name = Release;
@@ -542,6 +554,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vinoth.Event-TrackerUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Event Tracker";
 				USES_XCTRUNNER = YES;
 			};
@@ -554,6 +567,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vinoth.Event-TrackerUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Event Tracker";
 				USES_XCTRUNNER = YES;
 			};

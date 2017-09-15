@@ -19,9 +19,9 @@ class TrackListViewController: UIViewController{
         super.viewDidLoad()
         
            let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(TrackListViewController.handleSwipes(_:)))
-           rightSwipe.direction = .Right
+           rightSwipe.direction = .right
            view.addGestureRecognizer(rightSwipe)
-        tableView.editing = false
+        tableView.isEditing = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,29 +30,29 @@ class TrackListViewController: UIViewController{
     
     
     
-    func handleSwipes(sender:UISwipeGestureRecognizer) {
-        self.navigationController?.popViewControllerAnimated(true)
+    func handleSwipes(_ sender:UISwipeGestureRecognizer) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Table View
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(_ tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Singleton.sharedInstance.dataOfArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         if let theLabel = cell.viewWithTag(1) as? UILabel {
             theLabel.text = Singleton.sharedInstance.dataOfArray[indexPath.row]["name"]
         }
         
         if let theImageView = cell.viewWithTag(5) as? UIImageView {
-            theImageView.image = UIImage(imageLiteral: Singleton.sharedInstance.dataOfArray[indexPath.row]["image"]!)
+            theImageView.image = UIImage(named: Singleton.sharedInstance.dataOfArray[indexPath.row]["image"]!)
         }
         if let placeLabel = cell.viewWithTag(2) as? UILabel {
             placeLabel.text = Singleton.sharedInstance.dataOfArray[indexPath.row]["location"]
@@ -66,13 +66,13 @@ class TrackListViewController: UIViewController{
             }
         }
         
-        cell.selectionStyle = UITableViewCellSelectionStyle.Blue
+        cell.selectionStyle = UITableViewCellSelectionStyle.blue
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
         
-        let DetailEventViewControllerrOBJ = self.storyboard!.instantiateViewControllerWithIdentifier("detailEventViewController") as! DetailEventViewController
+        let DetailEventViewControllerrOBJ = self.storyboard!.instantiateViewController(withIdentifier: "detailEventViewController") as! DetailEventViewController
         DetailEventViewControllerrOBJ.selEventDetails = Singleton.sharedInstance.dataOfArray[indexPath.row]
         self.navigationController!.pushViewController(DetailEventViewControllerrOBJ, animated: true)
     }
@@ -80,35 +80,35 @@ class TrackListViewController: UIViewController{
     
     
     
-    func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, moveRowAtIndexPath fromIndexPath: IndexPath, toIndexPath: IndexPath) {
         
         let itemToMove = Singleton.sharedInstance.dataOfArray[fromIndexPath.row]
-        Singleton.sharedInstance.dataOfArray.removeAtIndex(fromIndexPath.row)
-        Singleton.sharedInstance.dataOfArray.insert(itemToMove, atIndex: toIndexPath.row)
+        Singleton.sharedInstance.dataOfArray.remove(at: fromIndexPath.row)
+        Singleton.sharedInstance.dataOfArray.insert(itemToMove, at: toIndexPath.row)
     }
     
     
     
-    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canMoveRowAtIndexPath indexPath: IndexPath) -> Bool {
         return true
     }
     
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            Singleton.sharedInstance.dataOfArray.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+    func tableView(_ tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            Singleton.sharedInstance.dataOfArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
     }
     
     // MARK: - Button Action
 
-    @IBAction func editButton(sender: UIButton) {
+    @IBAction func editButton(_ sender: UIButton) {
         
-        sender.selected = !sender.selected
-        tableView.editing = !tableView.editing
+        sender.isSelected = !sender.isSelected
+        tableView.isEditing = !tableView.isEditing
         
-        if !sender.selected {
+        if !sender.isSelected {
             updateAll()
         }
     }
@@ -118,13 +118,13 @@ class TrackListViewController: UIViewController{
             deleteAll()
             
             let appDelegate =
-                UIApplication.sharedApplication().delegate as! AppDelegate
+                UIApplication.shared.delegate as! AppDelegate
             let managedContext = appDelegate.managedObjectContext
-            let entity =  NSEntityDescription.entityForName("Device",
-                                                            inManagedObjectContext:managedContext)
+            let entity =  NSEntityDescription.entity(forEntityName: "Device",
+                                                            in:managedContext)
             let device = NSManagedObject(entity: entity!,
-                                         insertIntoManagedObjectContext: managedContext)
-            let data = NSKeyedArchiver.archivedDataWithRootObject(Singleton.sharedInstance.dataOfArray)
+                                         insertInto: managedContext)
+            let data = NSKeyedArchiver.archivedData(withRootObject: Singleton.sharedInstance.dataOfArray)
             device.setValue(Singleton.sharedInstance.name, forKey: "name")
             device.setValue(data, forKey: "dataOfArray")
             
@@ -139,16 +139,16 @@ class TrackListViewController: UIViewController{
     func deleteAll(){
         
         let appDelegate =
-            UIApplication.sharedApplication().delegate as! AppDelegate
+            UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        let request = NSFetchRequest(entityName: "Device")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Device")
         do {
             let results =
-                try managedContext.executeFetchRequest(request)
+                try managedContext.fetch(request)
             if results.count != 0 {
                 for result in results {
-                    if result.valueForKey("name") as! String == Singleton.sharedInstance.name {
-                        managedContext.deleteObject(result as! NSManagedObject)
+                    if (result as AnyObject).value(forKey: "name") as! String == Singleton.sharedInstance.name as String {
+                        managedContext.delete(result as! NSManagedObject)
                     }
                 }
                 do {

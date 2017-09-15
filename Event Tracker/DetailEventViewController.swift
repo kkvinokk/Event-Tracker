@@ -24,13 +24,13 @@ class DetailEventViewController: UIViewController {
         super.viewDidLoad()
         
         for EventDetails in Singleton.sharedInstance.dataOfArray {
-            if NSDictionary(dictionary: EventDetails).isEqualToDictionary(selEventDetails) {
-                addToTrack.selected = true
+            if NSDictionary(dictionary: EventDetails).isEqual(to: selEventDetails) {
+                addToTrack.isSelected = true
             }
         }
         
         lbl_Title.text = selEventDetails["name"]
-        img_Picture.image = UIImage(imageLiteral: selEventDetails["image"]!)
+        img_Picture.image = UIImage(named: selEventDetails["image"]!)
         lbl_Place.text = selEventDetails["location"]
         if selEventDetails["type"] == "p" {
             lbl_PaidorFree.text = "Paid"
@@ -39,16 +39,16 @@ class DetailEventViewController: UIViewController {
         }
 
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(EventListViewController.handleSwipes(_:)))
-        leftSwipe.direction = .Left
+        leftSwipe.direction = .left
         view.addGestureRecognizer(leftSwipe)
         
         let appDelegate =
-            UIApplication.sharedApplication().delegate as! AppDelegate
+            UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "Device")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Device")
         do {
             let results =
-                try managedContext.executeFetchRequest(fetchRequest)
+                try managedContext.fetch(fetchRequest)
             devices = results as! [NSManagedObject]
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
@@ -56,10 +56,10 @@ class DetailEventViewController: UIViewController {
 
     }
 
-    func handleSwipes(sender:UISwipeGestureRecognizer) {
+    func handleSwipes(_ sender:UISwipeGestureRecognizer) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let trackListViewController = storyboard.instantiateViewControllerWithIdentifier("trackListViewController")
+        let trackListViewController = storyboard.instantiateViewController(withIdentifier: "trackListViewController")
         self.navigationController!.pushViewController(trackListViewController, animated: true)
     }
 
@@ -69,18 +69,18 @@ class DetailEventViewController: UIViewController {
     
     // MARK: - Button Action
     
-    @IBAction func backButton(sender: AnyObject) {
+    @IBAction func backButton(_ sender: AnyObject) {
         
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
     }
 
-    @IBAction func addTrackList(sender: AnyObject){
+    @IBAction func addTrackList(_ sender: AnyObject){
         
-        if !addToTrack.selected {
-            addToTrack.selected  = true
+        if !addToTrack.isSelected {
+            addToTrack.isSelected  = true
             var x = true
             for EventDetails in Singleton.sharedInstance.dataOfArray {
-                if NSDictionary(dictionary: EventDetails).isEqualToDictionary(selEventDetails) {
+                if NSDictionary(dictionary: EventDetails).isEqual(to: selEventDetails) {
                     x = false
                 }
             }
@@ -92,13 +92,13 @@ class DetailEventViewController: UIViewController {
                 deleteAll()
                 
                 let appDelegate =
-                    UIApplication.sharedApplication().delegate as! AppDelegate
+                    UIApplication.shared.delegate as! AppDelegate
                 let managedContext = appDelegate.managedObjectContext
-                let entity =  NSEntityDescription.entityForName("Device",
-                                                                inManagedObjectContext:managedContext)
+                let entity =  NSEntityDescription.entity(forEntityName: "Device",
+                                                                in:managedContext)
                 let device = NSManagedObject(entity: entity!,
-                                             insertIntoManagedObjectContext: managedContext)
-                let data = NSKeyedArchiver.archivedDataWithRootObject(Singleton.sharedInstance.dataOfArray)
+                                             insertInto: managedContext)
+                let data = NSKeyedArchiver.archivedData(withRootObject: Singleton.sharedInstance.dataOfArray)
                 device.setValue(Singleton.sharedInstance.name, forKey: "name")
                 device.setValue(data, forKey: "dataOfArray")
                 do {
@@ -117,16 +117,16 @@ class DetailEventViewController: UIViewController {
     func deleteAll(){
         
         let appDelegate =
-            UIApplication.sharedApplication().delegate as! AppDelegate
+            UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        let request = NSFetchRequest(entityName: "Device")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Device")
         do {
             let results =
-                try managedContext.executeFetchRequest(request)
+                try managedContext.fetch(request)
             if results.count != 0 {
                 for result in results {
-                    if result.valueForKey("name") as! String == Singleton.sharedInstance.name {
-                        managedContext.deleteObject(result as! NSManagedObject)
+                    if (result as AnyObject).value(forKey: "name") as! String == Singleton.sharedInstance.name as String {
+                        managedContext.delete(result as! NSManagedObject)
                     }
                 }
                 do {

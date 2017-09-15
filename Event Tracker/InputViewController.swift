@@ -25,35 +25,35 @@ class InputViewController: UIViewController {
     
         // MARK: - Button Action
     
-    @IBAction func submitButton(sender: AnyObject) {
+    @IBAction func submitButton(_ sender: AnyObject) {
         
         if txtName.text == "" {
             
-            let alertView = UIAlertController(title: "Please enter your name", message: nil, preferredStyle: .Alert)
-            alertView.addAction(UIAlertAction(title: "Done", style: .Default, handler: nil))
-            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alertView, animated: true, completion: nil)
+            let alertView = UIAlertController(title: "Please enter your name", message: nil, preferredStyle: .alert)
+            alertView.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertView, animated: true, completion: nil)
 
         }else{
             
-            Singleton.sharedInstance.name = (txtName.text?.lowercaseString)!
+            Singleton.sharedInstance.name = (txtName.text?.lowercased())! as NSString
             
             let appDelegate =
-                UIApplication.sharedApplication().delegate as! AppDelegate
+                UIApplication.shared.delegate as! AppDelegate
             let managedContext = appDelegate.managedObjectContext
-            let fetchRequest = NSFetchRequest(entityName: "Device")
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Device")
             
             do {
                 let results =
-                    try managedContext.executeFetchRequest(fetchRequest)
+                    try managedContext.fetch(fetchRequest)
                 
                 if results.count != 0 {
                     
                     for result in results {
                         
-                        if result.valueForKey("name") as! String == Singleton.sharedInstance.name {
+                        if (result as AnyObject).value(forKey: "name") as! String == Singleton.sharedInstance.name as String {
                             
-                            let data = result.valueForKey("dataOfArray") as! NSData
-                            let unarchiveObject = NSKeyedUnarchiver.unarchiveObjectWithData(data)
+                            let data = (result as AnyObject).value(forKey: "dataOfArray") as! Data
+                            let unarchiveObject = NSKeyedUnarchiver.unarchiveObject(with: data)
                             let arrayObject = unarchiveObject as AnyObject! as! [[String: String]]
                             Singleton.sharedInstance.dataOfArray = arrayObject
                         }
@@ -66,7 +66,7 @@ class InputViewController: UIViewController {
             }
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let eventListViewControllerOBJ = storyboard.instantiateViewControllerWithIdentifier("eventListViewController")
+            let eventListViewControllerOBJ = storyboard.instantiateViewController(withIdentifier: "eventListViewController")
             self.navigationController!.pushViewController(eventListViewControllerOBJ, animated: true)
             
         }
