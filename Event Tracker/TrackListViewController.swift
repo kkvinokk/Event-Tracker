@@ -30,7 +30,7 @@ class TrackListViewController: UIViewController{
     
     
     
-    func handleSwipes(_ sender:UISwipeGestureRecognizer) {
+    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
         self.navigationController?.popViewController(animated: true)
     }
     

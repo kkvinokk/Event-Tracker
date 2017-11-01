@@ -72,7 +72,7 @@ class EventListViewController: UIViewController{
         super.viewDidLoad()
         
         let font = UIFont.systemFont(ofSize: 35)
-        segmentControl.setTitleTextAttributes([NSFontAttributeName: font],
+        segmentControl.setTitleTextAttributes([NSAttributedStringKey.font: font],
                                                 for: UIControlState())
         segmentControl.frame = CGRect(x: 20, y: 23, width: self.view.frame.size.width - 40 , height: 60)
 
@@ -89,7 +89,7 @@ class EventListViewController: UIViewController{
     
     
     
-    func handleSwipes(_ sender:UISwipeGestureRecognizer) {
+    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let trackListViewController = storyboard.instantiateViewController(withIdentifier: "trackListViewController")
